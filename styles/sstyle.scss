@@ -1,0 +1,48 @@
+$font-stack:    Courrier, serif;
+
+body {
+  font: 100% $font-stack;
+  color: brown;
+}
+
+body {
+  background-image: url('../images/background.png');
+
+}
+
+#main_container {
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  margin-top: 50px;
+}
+
+.header {
+  font-family: "Source Sans Pro Light", sans-serif;
+  font-size: 48px;
+  text-align: center;
+  border-bottom: solid 3px rgb(52, 152, 219);
+}
+
+.nav_bar {
+  font-size: 17px;
+  text-align: left;
+}
+
+.nav_bar li{
+  display:inline-block;
+  padding: 20px;
+}
+
+.nav_bar li:hover {
+  background-color: rgb(52, 152, 219);
+  color: white;
+}
+
+.nav_bar li img:hover {
+  -webkit-filter: invert(100%);
+  -moz-filter: invert(100%);
+  -o-filter: invert(100%);
+  -ms-filter: invert(100%);
+  filter: invert(100%);
+}
