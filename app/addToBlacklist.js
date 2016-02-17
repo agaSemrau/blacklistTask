@@ -15,12 +15,10 @@
         };
 
         $scope.addCardType = function(selected){
-            console.log(selected)
             $scope.cardType = selected
         };
 
         $scope.addCardNo = function(selected){
-            console.log(selected)
             $scope.cardNo = selected
         };
 

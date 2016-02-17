@@ -36,6 +36,15 @@ body {
         -o-filter: invert(100%);
         -ms-filter: invert(100%);
         filter: invert(100%); }
+    .header nav .tabs:active {
+      background-color: #3498db;
+      color: white; }
+      .header nav .tabs:active img {
+        -webkit-filter: invert(100%);
+        -moz-filter: invert(100%);
+        -o-filter: invert(100%);
+        -ms-filter: invert(100%);
+        filter: invert(100%); }
 
 main {
   padding-bottom: 50px; }
@@ -74,21 +83,21 @@ main {
     width: 90%;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 19px; }
-  main tr:nth-child(odd) {
-    background-color: #fafafa; }
-  main #buttonCell {
-    border: none;
-    background-color: white; }
-  main th, main td {
-    border-bottom: 1px solid #ecf0f1;
-    height: 45px;
-    vertical-align: middle;
-    padding-left: 30px; }
-  main th {
-    border-top: 1px solid #ecf0f1;
-    text-align: left;
-    background-color: #cce5f6;
-    font-weight: bold; }
+    main table tr:nth-child(odd) {
+      background-color: #fafafa; }
+    main table #buttonCell {
+      border: none;
+      background-color: white; }
+    main table th, main table td {
+      border-bottom: 1px solid #ecf0f1;
+      height: 45px;
+      vertical-align: middle;
+      padding-left: 30px; }
+    main table th {
+      border-top: 1px solid #ecf0f1;
+      text-align: left;
+      background-color: #cce5f6;
+      font-weight: bold; }
   main .typeDataMessage {
     margin-left: 30px;
     padding-top: 59px;
@@ -162,5 +171,16 @@ main {
       -o-filter: grayscale(0%);
       -ms-filter: grayscale(0%);
       filter: grayscale(0%); }
+    main .card li:active {
+      display: inline-block;
+      -webkit-filter: grayscale(0%);
+      -moz-filter: grayscale(0%);
+      -o-filter: grayscale(0%);
+      -ms-filter: grayscale(0%);
+      filter: grayscale(0%); }
+
+@media only screen and (max-width: 560px) {
+  .tabs {
+    color: #c0392b; } }
 
 /*# sourceMappingURL=styles.css.map */

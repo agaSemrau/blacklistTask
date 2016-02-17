@@ -1,6 +1,23 @@
 $font: Source sans pro light, sans-serif;
 $primary-color: rgb(52, 152, 219);
 
+@mixin filter_grayscale($grayscale) {
+  -webkit-filter: grayscale($grayscale);
+  -moz-filter: grayscale($grayscale);
+  -o-filter: grayscale($grayscale);
+  -ms-filter: grayscale($grayscale);
+  filter: grayscale($grayscale);
+}
+
+@mixin filter_invert($invert) {
+  -webkit-filter: invert($invert);
+  -moz-filter: invert($invert);
+  -o-filter: invert($invert);
+  -ms-filter: invert($invert);
+  filter: invert($invert);
+}
+
+
 body {
   background-image: url('../images/background.png');
 }
@@ -43,16 +60,19 @@ body {
       color: black;
     }
 
-    .tabs:hover {
+    .tabs:hover{
       background-color: $primary-color;
       color: white;
-
       img {
-        -webkit-filter: invert(100%);
-        -moz-filter: invert(100%);
-        -o-filter: invert(100%);
-        -ms-filter: invert(100%);
-        filter: invert(100%);
+        @include filter_invert(100%);
+      }
+    }
+
+    .tabs:active {
+      background-color: $primary-color;
+      color: white;
+      img {
+        @include filter_invert(100%);
       }
     }
   }
@@ -99,38 +119,37 @@ main {
       width: 150px;
     }
   }
+
   table {
     margin: 100px 0 0 30px;
     width: 90%;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 19px;
+
+    tr:nth-child(odd) {
+      background-color: rgb(250, 250, 250);
+    }
+
+    #buttonCell {
+      border: none;
+      background-color: white;
+    }
+
+    th, td {
+      border-bottom: 1px solid rgb(236, 240, 241);
+      height: 45px;
+      vertical-align: middle;
+      padding-left: 30px;
+    }
+
+    th {
+      border-top: 1px solid rgb(236, 240, 241);
+      text-align: left;
+      background-color: rgb(204, 229, 246);
+      font-weight: bold;
+    }
+
   }
-
-  tr:nth-child(odd){
-    background-color: rgb(250,250,250);
-  }
-
-  #buttonCell {
-    border: none;
-    background-color: white;
-  }
-
-  th, td {
-    border-bottom: 1px solid rgb(236, 240, 241);
-    height: 45px;
-    vertical-align: middle;
-    padding-left: 30px;
-  }
-
-
-  th {
-    border-top: 1px solid rgb(236, 240, 241);
-    text-align: left;
-    background-color: rgb(204, 229, 246);
-    font-weight: bold;
-  }
-
-
 
 .typeDataMessage {
   margin-left: 30px;
@@ -173,6 +192,7 @@ main {
     margin: 20% auto;
     border-radius:50%;
   }
+
   input[type='radio']:checked:before {
     background:$primary-color;
   }
@@ -198,11 +218,7 @@ main {
       height:90px;
       width: 90px;
       border: solid 1px rgb(236, 240, 241);
-      -webkit-filter: grayscale(100%);
-      -moz-filter: grayscale(100%);
-      -o-filter: grayscale(100%);
-      -ms-filter: grayscale(100%);
-      filter: grayscale(100%);
+      @include filter_grayscale(100%);
     }
 
 
@@ -221,12 +237,50 @@ main {
     }
 
     li:hover {
+        display: inline-block;
+        @include filter_grayscale(0%);
+      }
+    li:active {
       display: inline-block;
-      -webkit-filter: grayscale(0%);
-      -moz-filter: grayscale(0%);
-      -o-filter: grayscale(0%);
-      -ms-filter: grayscale(0%);
-      filter: grayscale(0%);
+      @include filter_grayscale(0%);
     }
   }
+}
+
+@media
+only screen and (max-width: 560px) {
+
+  .tabs {
+      color: #c0392b;
+  }
+//
+//  /* Force table to not be like tables anymore */
+//  table, thead, tbody, th, td, tr {
+//    display: block;
+//  }
+//
+//  /* Hide table headers (but not display: none;, for accessibility) */
+// th {
+//    position: absolute;
+//    top: -9999px;
+//    left: -9999px;
+//  }
+//
+//  td {
+//    position: relative;
+//    padding-left: 50%;
+//  }
+//
+//  td:before {
+//    position: absolute;
+//    top: 6px;
+//    left: 50px;
+//    width: 45%;
+//    padding-right: 10px;
+//    white-space: nowrap;
+//  }
+//
+//  td:nth-of-type(1):before { content: "First Name"; }
+//  td:nth-of-type(2):before { content: "Last Name"; }
+//
 }
