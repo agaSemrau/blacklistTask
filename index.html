@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Blacklist</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
 </head>
@@ -13,14 +13,34 @@
     <h1>Blacklist</h1>
     <nav class="nav_bar">
         <ul>
-            <li><img src="images/email_icone.png"/>Email</li>
-            <li><img src="images/bank_account_icone.png"/>Bank account</li>
-            <li><img src="images/card_icone.png"/>Card</li>
+            <li><a class="tabs" href="index.html"><img src="images/email_icone.png"/>Email</a></li>
+            <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png"/>Bank account</a></li>
+            <li><a class="tabs" href="#"><img src="images/card_icone.png"/>Card</a></li>
         </ul>
     </nav>
-
-
 </header>
+    <main>
+<form class="form">
+    <p class="input_title">Email address:</p>
+    <p>
+    <input class= "form_input" name="email" type="email" autocomplete="off"  placeholder="email@example.com" />
+    <button class="addButton">Add to blacklist</button>
+    </p>
+</form>
+
+     <table>
+         <th class = "value">Value</th>
+         <th>Blacklisted on</th>
+         <tr>
+             <td>one</td>
+             <td>two</td>
+         </tr>
+
+
+
+     </table>
+
+    </main>
 </div>
 </body>
 </html>

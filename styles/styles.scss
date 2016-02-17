@@ -1,8 +1,122 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$font: Source sans pro light, sans-serif;
+$primary-color: rgb(52, 152, 219);
 
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
+  background-image: url('../images/background.png');
 }
 
+#main_container {
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  margin-top: 60px;
+
+}
+
+.header {
+
+  border-bottom: solid 6px $primary-color;
+  font-family: $font;
+
+  h1 {
+    padding-top: 59px;
+    padding-bottom: 51px;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  nav {
+    margin-left: 30px;
+
+    li {
+      display: inline-block;
+      font-size: 17px;
+    }
+
+    img{
+      padding-right: 10px;
+    }
+
+    .tabs {
+      display: inline-block;
+      padding: 18px 29px 18px 29px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .tabs:hover {
+      background-color: $primary-color;
+      color: white;
+      img {
+        -webkit-filter: invert(100%);
+        -moz-filter: invert(100%);
+        -o-filter: invert(100%);
+        -ms-filter: invert(100%);
+        filter: invert(100%);
+      }
+    }
+  }
+}
+
+main{
+
+  .form {
+    font-family: $font;
+    margin-left: 30px;
+
+    .input_title {
+      padding-top: 30px;
+      margin-bottom: 3px;
+      font-size: 16px;
+    }
+
+    .form_input {
+      padding: 0 0 0 20px;
+      font-family: $font;
+      font-style: italic;
+      border: 1px solid rgb(189,195,199);
+      border-radius: 2px;
+      color: #888;
+      height: 43px;
+      width: 35%;
+      font-size: 19px;
+    }
+
+    .addButton {
+      font-family: "Source Sans Pro", sans-serif;
+      margin-left: 10px;
+      height: 45px;
+      border-radius: 2px;
+      border: 1px solid $primary-color;
+      background-color: $primary-color;
+      color:white;
+      text-align: center;
+      font-size: 19px;
+      padding:0;
+      border-image: none;
+      width: 18.5%;
+    }
+  }
+table {
+  margin: 100px 0 0 30px;
+  width: 70.5%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 19px;
+}
+  table, th, td {
+    border-bottom: 1px solid rgb(189,195,199);
+    height: 45px;
+    vertical-align: middle;
+    padding-left: 30px;
+  }
+
+  th{
+    text-align: left;
+    background-color: rgb(204,229,246);
+    font-weight: bold;
+  }
+
+  .value{
+    width: 51%;
+  }
+}
