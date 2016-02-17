@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en" ng-app="Blacklist">
 <head>
     <meta charset="UTF-8">
     <title>Blacklist</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="app/js/angular.min.js"></script>
+    <script type="text/javascript" src="app/addToBlacklist.js"></script>
 </head>
 <body>
 <div id="main_container">
@@ -15,31 +17,32 @@
         <ul>
             <li><a class="tabs" href="index.html"><img src="images/email_icone.png"/>Email</a></li>
             <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png"/>Bank account</a></li>
-            <li><a class="tabs" href="#"><img src="images/card_icone.png"/>Card</a></li>
+            <li><a class="tabs" href="card.html"><img src="images/card_icone.png"/>Card</a></li>
         </ul>
     </nav>
 </header>
-    <main>
+    <main ng-controller="blacklistCtrl">
 <form class="form">
     <p class="input_title">Email address:</p>
     <p>
-    <input class= "form_input" name="email" type="email" autocomplete="off"  placeholder="email@example.com" />
-    <button class="addButton">Add to blacklist</button>
+    <input ng-model="newItem.email" class= "form_input" name="email" type="email" autocomplete="off"  placeholder="email@example.com" />
+    <button ng-click="addItem(newItem.email)" class="addButton">Add to blacklist</button>
     </p>
 </form>
 
-     <table>
-         <th class = "value">Value</th>
-         <th>Blacklisted on</th>
+     <table ng-hide="tableEmpty">
+         <p class="typeDataMessage" ng-show="typeDataMessage">Please type the correcet e-mail address</p>
          <tr>
-             <td>one</td>
-             <td>two</td>
+         <th class="value">Value</th>
+         <th>Blacklisted on</th>
+
          </tr>
-
-
-
+         <tr ng-repeat="item in blacklist">
+             <td>{{item.email}}</td>
+             <td>{{item.date | date:'dd-MM-yyyy'}}</td>
+             <td id="buttonCell"><button class="remove" ng-click="removeItem(item)">Remove</button> </td>
+         </tr>
      </table>
-
     </main>
 </div>
 </body>

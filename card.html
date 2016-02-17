@@ -2,7 +2,7 @@
 <html lang="en" ng-app="Blacklist">
 <head>
     <meta charset="UTF-8">
-    <title>Bank account</title>
+    <title>Card</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
@@ -25,18 +25,23 @@
 
     <main ng-controller="blacklistCtrl">
         <form class="form">
-            <p class="input_title">Bank account number:</p>
+            <p class="input_title">Card number:</p>
             <p>
-                <input ng-model="newItem.email" class= "form_input" name="email" type="email" autocomplete="off"  placeholder="email@example.com" />
+                <input ng-model="newItem.card" class="form_input" name="card" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
             </p>
-<div class="radio">
-            <p class="input_title">Account number type</p>
-            <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="IBAN" type="radio"><label>IBAN</label></p>
-            <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="BIC" type="radio"><label>BIC</label></p>
-</div>
-            <button ng-click="addItem(newItem.email, type)" class="addButton">Add to blacklist</button>
+            <div class="card">
+                <p class="input_title">Card type</p>
+                <ul>
+                    <li><input class="visa_image" ng-click="addCardType(newItem.cardType)" ng-model="newItem.type" value="Visa" type="image" src="images/visa.png"></li>
+                    <li><input class="master_image" ng-click="addCard(newItem.cardType)" ng-model="newItem.type" value="MasterCard"
+                               type="image" src="images/mastercard.png"></li>
+                    <li><input class="american_image" ng-click="addCard(newItem.card)" ng-model="newItem.type" value="American Express"
+                               type="image" src="images/American_Express.png"></li>
+                </ul>
+            </div>
+            <button ng-click="addCard(newItem.card)" class="addButton">Add to blacklist</button>
         </form>
-<hr>
+
         <table ng-hide="tableEmpty">
             <p class="typeDataMessage" ng-show="typeDataMessage">Please type the correcet e-mail address</p>
             <tr>
