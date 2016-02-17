@@ -27,31 +27,31 @@
         <form class="form">
             <p class="input_title">Card number:</p>
             <p>
-                <input ng-model="newItem.card" class="form_input" name="card" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
+                <input ng-model="newItem.cardNo" class="form_input" name="card" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
             </p>
             <div class="card">
                 <p class="input_title">Card type</p>
                 <ul>
-                    <li><input class="visa_image" ng-click="addCardType(newItem.cardType)" ng-model="newItem.type" value="Visa" type="image" src="images/visa.png"></li>
-                    <li><input class="master_image" ng-click="addCard(newItem.cardType)" ng-model="newItem.type" value="MasterCard"
+                    <li><input class="visa_image" ng-click="addCardType('Visa')" value="Visa" type="image" src="images/visa.png"></li>
+                    <li><input class="master_image" ng-click="addCardType('MasterCard')" ng-model="newItem.cardType" value="MasterCard"
                                type="image" src="images/mastercard.png"></li>
-                    <li><input class="american_image" ng-click="addCard(newItem.card)" ng-model="newItem.type" value="American Express"
+                    <li><input class="american_image" ng-click="addCardType('American Express')" ng-model="newItem.cardType" value="American Express"
                                type="image" src="images/American_Express.png"></li>
                 </ul>
             </div>
-            <button ng-click="addCard(newItem.card)" class="addButton">Add to blacklist</button>
+            <button ng-click="addCardNo(newItem.cardNo); addItem()" class="addButton">Add to blacklist</button>
         </form>
 
         <table ng-hide="tableEmpty">
             <p class="typeDataMessage" ng-show="typeDataMessage">Please type the correcet e-mail address</p>
             <tr>
                 <th class="value">Value</th>
-                <th>Blacklisted on</th>
                 <th>Type</th>
+                <th>Blacklisted on</th>
             </tr>
             <tr ng-repeat="item in blacklist">
-                <td>{{item.email}}</td>
-                <td>{{item.type}}</td>
+                <td>{{item.cardNo}}</td>
+                <td>{{item.cardType}}</td>
                 <td>{{item.date | date:'dd-MM-yyyy'}}</td>
                 <td id="buttonCell"><button class="remove" ng-click="removeItem(item)">Remove</button> </td>
             </tr>

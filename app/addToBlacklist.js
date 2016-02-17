@@ -14,10 +14,14 @@
             $scope.type = selected
         };
 
-        $scope.addCard = function(selected){
-            $scope.cardNo = selected
-            console.log()
+        $scope.addCardType = function(selected){
+            console.log(selected)
+            $scope.cardType = selected
+        };
 
+        $scope.addCardNo = function(selected){
+            console.log(selected)
+            $scope.cardNo = selected
         };
 
         $scope.addItem = function (item) {
