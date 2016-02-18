@@ -6,7 +6,6 @@
     <title>Bank account</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="main_container">
@@ -36,7 +35,8 @@
                 <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="BIC"
                           type="radio"><label>BIC</label></p>
             </div>
-            <button ng-click="addAccount(newItem.account); checkDupes(newItem.account); addItem(newItem.account, newItem.type)" class="addButton">Add
+            <button ng-click="addAccount(newItem.account); checkDupes(newItem.account); addItem(newItem.account, newItem.type)"
+                    class="addButton">Add
                 to blacklist
             </button>
         </form>
@@ -52,7 +52,7 @@
                 <th>Type</th>
             </tr>
             <tr class="animate-repeat" ng-repeat="item in blacklist">
-                <td>{{item.email}}</td>
+                <td>{{item.account}}</td>
                 <td>{{item.type}}</td>
                 <td>{{item.date | date:'dd-MM-yyyy'}}</td>
                 <td id="buttonCell">
@@ -65,6 +65,8 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="app/addToBlacklist.js"></script>
+<script type="text/javascript" src="app/effects.js"></script>
 </body>
 </html>

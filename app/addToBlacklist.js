@@ -7,47 +7,48 @@
         $scope.typeDataMessage = false;
 
         $scope.date = new Date();
-        $scope.blacklist =[];
-        $scope.newItem = {email: '', type: '', date: '',cardNo:'', cardType:''};
+        $scope.blacklist = [];
+        $scope.newItem = {email: '', type: '', date: '', cardNo: '', cardType: ''};
 
 
-        $scope.addAccount = function(selected){
-            $scope.account=selected
+        $scope.addAccount = function (selected) {
+            $scope.account = selected
         };
-        $scope.addType = function(selected){
-                $scope.type = selected;
-        };
-
-        $scope.addCardType = function(selected){
-                $scope.cardType = selected
+        $scope.addType = function (selected) {
+            $scope.type = selected;
         };
 
-        $scope.addCardNo = function(selected){
-                $scope.cardNo = selected
+        $scope.addCardType = function (selected) {
+            $scope.cardType = selected
         };
 
-        $scope.addEmail = function(selected){
+        $scope.addCardNo = function (selected) {
+            $scope.cardNo = selected
+        };
+
+        $scope.addEmail = function (selected) {
             $scope.email = selected
         };
 
-        $scope.checkDupes = function(param1){
-            $scope.blacklist.forEach(function(element){
-                if(element.email===param1 || element.account===param1 || element.cardNo===param1){
+        $scope.checkDupes = function (param) {
+            $scope.blacklist.forEach(function (element) {
+                if (element.email === param || element.account === param || element.cardNo === param) {
                     var position = $scope.blacklist.indexOf(element);
-                    $scope.blacklist.splice(position,1);
+                    $scope.blacklist.splice(position, 1);
                     $scope.dupes = true;
                 }
-                else{
+                else {
                     $scope.dupes = false;
                 }
             })
         };
         $scope.addItem = function (param1, param2) {
+            console.log(param1)
 
             if (param1 === '' ||
                 param1 === undefined ||
                 param2 === undefined ||
-                param2 === ''){
+                param2 === '') {
 
                 $scope.tableEmpty = true;
                 $scope.typeDataMessage = true;
@@ -62,9 +63,10 @@
                     date: $scope.date,
                     type: $scope.type,
                     cardNo: $scope.cardNo,
-                    cardType: $scope.cardType
+                    cardType: $scope.cardType,
+                    account: $scope.account
                 });
-                console.log( $scope.blacklist)
+                console.log($scope.blacklist)
             }
         };
 

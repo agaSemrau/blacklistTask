@@ -6,7 +6,6 @@
     <title>Card</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="main_container">
@@ -15,7 +14,8 @@
         <nav class="nav_bar">
             <ul>
                 <li><a class="tabs" href="index.html"><img src="images/email_icone.png" alt="email"/>Email</a></li>
-                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png" alt="account"/>Bank account</a></li>
+                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png" alt="account"/>Bank
+                    account</a></li>
                 <li><a class="tabs" href="card.html"><img src="images/card_icone.png" alt="card"/>Card</a></li>
             </ul>
         </nav>
@@ -25,19 +25,34 @@
         <form class="form">
             <p class="input_title">Card number:</p>
             <p>
-                <input ng-model="newItem.cardNo" class="form_input" name="card" pattern="[0-9]{16}" autocomplete="off"  placeholder="0000000000000000" />
+                <input ng-model="newItem.cardNo" class="form_input" name="card" pattern="[0-9]{16}" autocomplete="off"
+                       placeholder="0000000000000000"/>
             </p>
             <div class="card">
                 <p class="input_title">Card type</p>
                 <ul>
-                    <li ng-click="addCardType('Visa')"><input class="visa_image"  value="Visa" type="image" src="images/visa.png" alt="Visa"></li>
-                    <li ng-click="addCardType('MasterCard')"><input class="master_image" ng-model="newItem.cardType" value="MasterCard" alt="MasterCard"
-                               type="image" src="images/mastercard.png"></li>
-                    <li ng-click="addCardType('American Express')"><input class="american_image" ng-model="newItem.cardType" value="American Express" alt="Amrican Express"
-                               type="image" src="images/American_Express.png"></li>
+                    <li class="unactive_card" ng-click="addCardType('Visa')"><input class="visa_image" value="Visa"
+                                                                                    type="image" src="images/visa.png"
+                                                                                    alt="Visa"></li>
+                    <li class="unactive_card" ng-click="addCardType('MasterCard')"><input class="master_image"
+                                                                                          ng-model="newItem.cardType"
+                                                                                          value="MasterCard"
+                                                                                          alt="MasterCard"
+                                                                                          type="image"
+                                                                                          src="images/mastercard.png">
+                    </li>
+                    <li class="unactive_card" ng-click="addCardType('American Express')"><input class="american_image"
+                                                                                                ng-model="newItem.cardType"
+                                                                                                value="American Express"
+                                                                                                alt="Amrican Express"
+                                                                                                type="image"
+                                                                                                src="images/American_Express.png">
+                    </li>
                 </ul>
             </div>
-            <button ng-click="addCardNo(newItem.cardNo); checkDupes(newItem.cardNo); addItem(newItem.cardNo, cardType)" class="addButton">Add to blacklist</button>
+            <button ng-click="addCardNo(newItem.cardNo); checkDupes(newItem.cardNo); addItem(newItem.cardNo, cardType)"
+                    class="addButton">Add to blacklist
+            </button>
         </form>
 
         <p class="message" ng-show="typeDataMessage">Please type all required data.</p>
@@ -53,8 +68,9 @@
                 <td>{{item.cardNo}}</td>
                 <td>{{item.cardType}}</td>
                 <td>{{item.date | date:'dd-MM-yyyy'}}</td>
-                <td id="buttonCell"><button class="remove hidden-xs" ng-click="removeItem(item)">Remove</button>
-                                    <button class="remove hidden-lg" ng-click="removeItem(item)">x</button>
+                <td id="buttonCell">
+                    <button class="remove hidden-xs" ng-click="removeItem(item)">Remove</button>
+                    <button class="remove hidden-lg" ng-click="removeItem(item)">x</button>
                 </td>
             </tr>
         </table>
@@ -62,6 +78,8 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="app/addToBlacklist.js"></script>
+<script type="text/javascript" src="app/effects.js"></script>
 </body>
 </html>

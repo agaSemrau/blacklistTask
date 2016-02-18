@@ -6,7 +6,7 @@
     <title>Blacklist</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <div id="main_container">
@@ -15,7 +15,8 @@
         <nav class="nav_bar">
             <ul>
                 <li><a class="tabs" href="index.html"><img src="images/email_icone.png" alt="email"/>Email</a></li>
-                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png" alt="account"/>Bank account</a></li>
+                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png" alt="account"/>Bank
+                    account</a></li>
                 <li><a class="tabs" href="card.html"><img src="images/card_icone.png" alt="card"/>Card</a></li>
             </ul>
         </nav>
@@ -26,7 +27,9 @@
             <p>
                 <input ng-model="newItem.email" class="form_input" name="email" type="email" autocomplete="off"
                        placeholder="email@example.com"/>
-                <button ng-click="addEmail(newItem.email); checkDupes(newItem.email); addItem(newItem.email, 'null')" class="addButton">Add to blacklist</button>
+                <button ng-click="addEmail(newItem.email); checkDupes(newItem.email); addItem(newItem.email, 'null')"
+                        class="addButton">Add to blacklist
+                </button>
             </p>
         </form>
 
@@ -52,6 +55,8 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="app/addToBlacklist.js"></script>
+<script type="text/javascript" src="app/effects.js"></script>
 </body>
 </html>
