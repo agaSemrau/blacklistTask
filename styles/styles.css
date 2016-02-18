@@ -9,7 +9,7 @@ body {
   width: 80%;
   background-color: white;
   margin-top: 60px;
-  font-family: Source sans pro light, sans-se rif; }
+  font-family: Source sans pro light, sans-serif; }
 
 .header {
   border-bottom: solid 6px #3498db; }
@@ -96,7 +96,7 @@ main {
       margin-bottom: 3px;
       font-size: 16px; }
     main .form .form_input {
-      font-family: Source sans pro light, sans-se rif;
+      font-family: Source sans pro light, sans-serif;
       padding: 0 0 0 20px;
       font-style: italic;
       border: 1px solid #bdc3c7;
