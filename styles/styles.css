@@ -52,15 +52,6 @@ body {
         -o-filter: invert(100%);
         -ms-filter: invert(100%);
         filter: invert(100%); }
-    .header nav .tabs:active {
-      background-color: #3498db;
-      color: white; }
-      .header nav .tabs:active img {
-        -webkit-filter: invert(100%);
-        -moz-filter: invert(100%);
-        -o-filter: invert(100%);
-        -ms-filter: invert(100%);
-        filter: invert(100%); }
 
 main {
   padding-bottom: 50px; }
@@ -176,7 +167,7 @@ main {
         -o-filter: grayscale(0%);
         -ms-filter: grayscale(0%);
         filter: grayscale(0%); }
-  main .typeDataMessage {
+  main .message {
     margin-left: 30px;
     padding-top: 59px;
     font-size: 19px; }

@@ -25,7 +25,7 @@
         <form class="form">
             <p class="input_title">Card number:</p>
             <p>
-                <input ng-model="newItem.cardNo" class="form_input" name="card" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
+                <input ng-model="newItem.cardNo" class="form_input" name="card" pattern="[0-9]{16}" autocomplete="off"  placeholder="0000000000000000" />
             </p>
             <div class="card">
                 <p class="input_title">Card type</p>
@@ -37,11 +37,13 @@
                                type="image" src="images/American_Express.png"></li>
                 </ul>
             </div>
-            <button ng-click="addCardNo(newItem.cardNo); addItem(newItem.cardNo, cardType)" class="addButton">Add to blacklist</button>
+            <button ng-click="addCardNo(newItem.cardNo); checkDupes(newItem.cardNo); addItem(newItem.cardNo, cardType)" class="addButton">Add to blacklist</button>
         </form>
-        <p class="typeDataMessage" ng-show="typeDataMessage">Please type all required data.</p>
-        <table ng-hide="tableEmpty">
 
+        <p class="message" ng-show="typeDataMessage">Please type all required data.</p>
+        <p class="message" ng-show="dupes">This data exists already on blacklist</p>
+
+        <table ng-hide="tableEmpty">
             <tr>
                 <th class="value">Value</th>
                 <th>Type</th>

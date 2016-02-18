@@ -26,11 +26,12 @@
             <p>
                 <input ng-model="newItem.email" class="form_input" name="email" type="email" autocomplete="off"
                        placeholder="email@example.com"/>
-                <button ng-click="addItem(newItem.email, 'null')" class="addButton">Add to blacklist</button>
+                <button ng-click="addEmail(newItem.email); checkDupes(newItem.email); addItem(newItem.email, 'null')" class="addButton">Add to blacklist</button>
             </p>
         </form>
 
-        <p class="typeDataMessage" ng-show="typeDataMessage">Please type all required data.</p>
+        <p class="message" ng-show="typeDataMessage">Please type all required data.</p>
+        <p class="message" ng-show="dupes">This data exists already on blacklist</p>
 
         <table ng-hide="tableEmpty" class="animate-repeat">
             <tr>

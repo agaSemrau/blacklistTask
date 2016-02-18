@@ -7,7 +7,7 @@
         $scope.typeDataMessage = false;
 
         $scope.date = new Date();
-        $scope.blacklist = [];
+        $scope.blacklist =[];
         $scope.newItem = {email: '', type: '', date: '',cardNo:'', cardType:''};
 
 
@@ -26,6 +26,22 @@
                 $scope.cardNo = selected
         };
 
+        $scope.addEmail = function(selected){
+            $scope.email = selected
+        };
+
+        $scope.checkDupes = function(param1){
+            $scope.blacklist.forEach(function(element){
+                if(element.email===param1 || element.account===param1 || element.cardNo===param1){
+                    var position = $scope.blacklist.indexOf(element);
+                    $scope.blacklist.splice(position,1);
+                    $scope.dupes = true;
+                }
+                else{
+                    $scope.dupes = false;
+                }
+            })
+        };
         $scope.addItem = function (param1, param2) {
 
             if (param1 === '' ||
@@ -41,14 +57,14 @@
                 $scope.tableEmpty = false;
                 $scope.typeDataMessage = false;
 
-                var newItem = angular.copy(param1);
                 $scope.blacklist.push({
-                    email: newItem,
+                    email: $scope.email,
                     date: $scope.date,
                     type: $scope.type,
                     cardNo: $scope.cardNo,
                     cardType: $scope.cardType
                 });
+                console.log( $scope.blacklist)
             }
         };
 

@@ -15,7 +15,8 @@
         <nav class="nav_bar">
             <ul>
                 <li><a class="tabs" href="index.html"><img src="images/email_icone.png" alt="email"/>Email</a></li>
-                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png" alt="account"/>Bank account</a></li>
+                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png" alt="account"/>Bank
+                    account</a></li>
                 <li><a class="tabs" href="card.html"><img src="images/card_icone.png" alt="card"/>Card</a></li>
             </ul>
         </nav>
@@ -25,17 +26,25 @@
         <form class="form">
             <p class="input_title">Bank account number:</p>
             <p>
-                <input ng-model="newItem.account" class= "form_input" name="accountNo" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
+                <input ng-model="newItem.account" class="form_input" name="accountNo" pattern="[0-9]{26}"
+                       autocomplete="off" placeholder="42000000000000000000000000"/>
             </p>
-<div class="radio">
-            <p class="input_title">Account number type</p>
-            <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="IBAN" type="radio"><label>IBAN</label></p>
-            <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="BIC" type="radio"><label>BIC</label></p>
-</div>
-            <button ng-click="addAccount(newItem.account); addItem(newItem.account, newItem.type)" class="addButton">Add to blacklist</button>
+            <div class="radio">
+                <p class="input_title">Account number type</p>
+                <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="IBAN" type="radio"><label>IBAN</label>
+                </p>
+                <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="BIC"
+                          type="radio"><label>BIC</label></p>
+            </div>
+            <button ng-click="addAccount(newItem.account); checkDupes(newItem.account); addItem(newItem.account, newItem.type)" class="addButton">Add
+                to blacklist
+            </button>
         </form>
-<hr>
-        <p class="typeDataMessage" ng-show="typeDataMessage">Please type all required data.</p>
+        <hr>
+
+        <p class="message" ng-show="typeDataMessage">Please type all required data.</p>
+        <p class="message" ng-show="dupes">This data exists already on blacklist</p>
+
         <table ng-hide="tableEmpty">
             <tr>
                 <th class="value">Value</th>
@@ -46,8 +55,10 @@
                 <td>{{item.email}}</td>
                 <td>{{item.type}}</td>
                 <td>{{item.date | date:'dd-MM-yyyy'}}</td>
-                <td id="buttonCell"><button class="remove hidden-xs" ng-click="removeItem(item)">Remove</button>
-                                    <button class="remove hidden-lg" ng-click="removeItem(item)">x</button></td>
+                <td id="buttonCell">
+                    <button class="remove hidden-xs" ng-click="removeItem(item)">Remove</button>
+                    <button class="remove hidden-lg" ng-click="removeItem(item)">x</button>
+                </td>
             </tr>
         </table>
     </main>

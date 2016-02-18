@@ -90,14 +90,6 @@ body {
         @include filter_invert(100%);
       }
     }
-
-    .tabs:active {
-      background-color: $primary-color;
-      color: white;
-      img {
-        @include filter_invert(100%);
-      }
-    }
   }
 }
 
@@ -235,7 +227,7 @@ main {
     }
   }
 
-  .typeDataMessage {
+  .message {
     margin-left: 30px;
     padding-top: 59px;
     font-size: 19px;
