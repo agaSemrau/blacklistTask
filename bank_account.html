@@ -2,13 +2,11 @@
 <html lang="en" ng-app="Blacklist">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bank account</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="app/js/angular.min.js"></script>
-    <script type="text/javascript" src="app/addToBlacklist.js"></script>
-
 </head>
 <body>
 <div id="main_container">
@@ -27,31 +25,35 @@
         <form class="form">
             <p class="input_title">Bank account number:</p>
             <p>
-                <input ng-model="newItem.email" class= "form_input" name="accountNo" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
+                <input ng-model="newItem.account" class= "form_input" name="accountNo" pattern="[0-9]{14}" autocomplete="off"  placeholder="42000000000000" />
             </p>
 <div class="radio">
             <p class="input_title">Account number type</p>
             <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="IBAN" type="radio"><label>IBAN</label></p>
             <p><input ng-change="addType(newItem.type)" ng-model="newItem.type" value="BIC" type="radio"><label>BIC</label></p>
 </div>
-            <button ng-click="addItem(newItem.email, type)" class="addButton">Add to blacklist</button>
+            <button ng-click="addAccount(newItem.account); addItem(newItem.account, newItem.type)" class="addButton">Add to blacklist</button>
         </form>
 <hr>
+        <p class="typeDataMessage" ng-show="typeDataMessage">Please type all required data.</p>
         <table ng-hide="tableEmpty">
-            <p class="typeDataMessage" ng-show="typeDataMessage">Please type the correcet e-mail address</p>
             <tr>
                 <th class="value">Value</th>
                 <th>Blacklisted on</th>
                 <th>Type</th>
             </tr>
-            <tr ng-repeat="item in blacklist">
+            <tr class="animate-repeat" ng-repeat="item in blacklist">
                 <td>{{item.email}}</td>
                 <td>{{item.type}}</td>
                 <td>{{item.date | date:'dd-MM-yyyy'}}</td>
-                <td id="buttonCell"><button class="remove" ng-click="removeItem(item)">Remove</button> </td>
+                <td id="buttonCell"><button class="remove hidden-xs" ng-click="removeItem(item)">Remove</button>
+                                    <button class="remove hidden-lg" ng-click="removeItem(item)">x</button></td>
             </tr>
         </table>
     </main>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="app/addToBlacklist.js"></script>
 </body>
 </html>

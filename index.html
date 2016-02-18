@@ -2,48 +2,56 @@
 <html lang="en" ng-app="Blacklist">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blacklist</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="app/js/angular.min.js"></script>
-    <script type="text/javascript" src="app/addToBlacklist.js"></script>
 </head>
 <body>
 <div id="main_container">
-<header class="header">
-    <h1>Blacklist</h1>
-    <nav class="nav_bar">
-        <ul>
-            <li><a class="tabs" href="index.html"><img src="images/email_icone.png"/>Email</a></li>
-            <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png"/>Bank account</a></li>
-            <li><a class="tabs" href="card.html"><img src="images/card_icone.png"/>Card</a></li>
-        </ul>
-    </nav>
-</header>
+    <header class="header">
+        <h1>Blacklist</h1>
+        <nav class="nav_bar">
+            <ul>
+                <li><a class="tabs" href="index.html"><img src="images/email_icone.png"/>Email</a></li>
+                <li><a class="tabs" href="bank_account.html"><img src="images/bank_account_icone.png"/>Bank account</a>
+                </li>
+                <li><a class="tabs" href="card.html"><img src="images/card_icone.png"/>Card</a></li>
+            </ul>
+        </nav>
+    </header>
     <main ng-controller="blacklistCtrl">
-<form class="form">
-    <p class="input_title">Email address:</p>
-    <p>
-    <input ng-model="newItem.email" class= "form_input" name="email" type="email" autocomplete="off"  placeholder="email@example.com" />
-    <button ng-click="addItem(newItem.email)" class="addButton">Add to blacklist</button>
-    </p>
-</form>
+        <form class="form">
+            <p class="input_title">Email address:</p>
+            <p>
+                <input ng-model="newItem.email" class="form_input" name="email" type="email" autocomplete="off"
+                       placeholder="email@example.com"/>
+                <button ng-click="addItem(newItem.email, 'null')" class="addButton">Add to blacklist</button>
+            </p>
+        </form>
 
-     <table ng-hide="tableEmpty">
-         <p class="typeDataMessage" ng-show="typeDataMessage">Please type the correcet e-mail address</p>
-         <tr>
-         <th class="value">Value</th>
-         <th>Blacklisted on</th>
+        <p class="typeDataMessage" ng-show="typeDataMessage">Please type all required data.</p>
 
-         </tr>
-         <tr ng-repeat="item in blacklist">
-             <td>{{item.email}}</td>
-             <td>{{item.date | date:'dd-MM-yyyy'}}</td>
-             <td id="buttonCell"><button class="remove" ng-click="removeItem(item)">Remove</button> </td>
-         </tr>
-     </table>
+        <table ng-hide="tableEmpty" class="animate-repeat">
+            <tr>
+                <th class="value">Value</th>
+                <th>Blacklisted on</th>
+
+            </tr>
+            <tr class="animate-repeat" ng-repeat="item in blacklist">
+                <td>{{item.email}}</td>
+                <td>{{item.date | date:'dd-MM-yyyy'}}</td>
+                <td id="buttonCell">
+                    <button class="remove hidden-xs" ng-click="removeItem(item)">Remove</button>
+                    <button class="remove hidden-lg" ng-click="removeItem(item)">x</button>
+                </td>
+            </tr>
+        </table>
     </main>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="app/addToBlacklist.js"></script>
 </body>
 </html>
