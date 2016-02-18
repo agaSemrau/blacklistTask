@@ -43,7 +43,6 @@
             })
         };
         $scope.addItem = function (param1, param2) {
-            console.log(param1)
 
             if (param1 === '' ||
                 param1 === undefined ||
@@ -66,7 +65,6 @@
                     cardType: $scope.cardType,
                     account: $scope.account
                 });
-                console.log($scope.blacklist)
             }
         };
 
